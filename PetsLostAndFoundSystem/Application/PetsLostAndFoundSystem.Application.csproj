@@ -20,11 +20,14 @@
 
   <ItemGroup>
     <Folder Include="Statistics\Handlers\" />
-    <Folder Include="Statistics\Queries\" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="Identity\Commands\CreateUser\CreateUserCommand.Fakes.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\PetsLostAndFoundSystem.Domain.csproj" />
   </ItemGroup>
 
 </Project>

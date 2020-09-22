@@ -1,4 +1,4 @@
-﻿namespace PetsLostAndFoundSystem.Application.Identity.Commands.ChangePassowrd
+﻿namespace PetsLostAndFoundSystem.Application.Identity.Commands.ChangePassword
 {
     public class ChangePasswordInputModel
     {

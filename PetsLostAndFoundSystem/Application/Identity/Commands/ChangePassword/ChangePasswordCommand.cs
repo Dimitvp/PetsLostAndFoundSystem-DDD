@@ -1,4 +1,4 @@
-﻿namespace PetsLostAndFoundSystem.Application.Identity.Commands.ChangePassowrd
+﻿namespace PetsLostAndFoundSystem.Application.Identity.Commands.ChangePassword
 {
     using System.Threading;
     using System.Threading.Tasks;

@@ -1,0 +1,11 @@
+{
+  "General": {
+    "WebAssemblyName": "PetsLostAndFoundSystem.Startup"
+  },
+  "ApplicationSettings": {
+    "Secret": "Some Boom Fake Secret"
+  },
+  "ConnectionStrings": {
+    "DefaultConnection": "Fake Connection String"
+  }
+}
