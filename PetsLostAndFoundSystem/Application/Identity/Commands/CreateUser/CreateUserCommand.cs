@@ -3,8 +3,8 @@
     using System.Threading;
     using System.Threading.Tasks;
     using Common;
-    using Dealerships.Dealers;
-    using Domain.Dealerships.Factories.Dealers;
+    using Reporting.Dealers;
+    using Domain.Reporting.Factories.Reporters;
     using MediatR;
 
     public class CreateUserCommand : UserInputModel, IRequest<Result>
@@ -16,17 +16,17 @@
         public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Result>
         {
             private readonly IIdentity identity;
-            private readonly IDealerFactory dealerFactory;
-            private readonly IDealerRepository dealerRepository;
+            private readonly IReporterFactory reporterFactory;
+            private readonly IReporterRepository reporterRepository;
 
             public CreateUserCommandHandler(
                 IIdentity identity,
-                IDealerFactory dealerFactory,
-                IDealerRepository dealerRepository)
+                IReporterFactory reporterFactory,
+                IReporterRepository reporterRepository)
             {
                 this.identity = identity;
-                this.dealerFactory = dealerFactory;
-                this.dealerRepository = dealerRepository;
+                this.reporterFactory = reporterFactory;
+                this.reporterRepository = reporterRepository;
             }
 
             public async Task<Result> Handle(
@@ -42,14 +42,14 @@
 
                 var user = result.Data;
 
-                var dealer = this.dealerFactory
+                var reporter = this.reporterFactory
                     .WithName(request.Name)
                     .WithPhoneNumber(request.PhoneNumber)
                     .Build();
 
-                user.BecomeDealer(dealer);
+                user.BecomeDealer(reporter);
 
-                await this.dealerRepository.Save(dealer, cancellationToken);
+                await this.reporterRepository.Save(reporter, cancellationToken);
 
                 return result;
             }
