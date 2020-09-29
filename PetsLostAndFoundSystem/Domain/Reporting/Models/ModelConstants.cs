@@ -29,5 +29,11 @@
         {
 
         }
+
+        public class Location
+        {
+            public const int MinAddressLength = 10;
+            public const int MaxAddressLength = 255;
+        }
     }
 }

@@ -15,12 +15,12 @@
             PetStatusType status,
             DateTime LostDate,
             string imgsLinksPosts,
-            double rewardSum,
+            decimal rewardSum,
             Pet pet,
             Location location,
             bool isApproved)
         {
-            this.Validate();
+            this.Validate(imgsLinksPosts, rewardSum);
 
             this.Status = status;
             this.LostDate = LostDate;
@@ -33,7 +33,7 @@
 
         private Report(
             string imgsLinksPosts,
-            double rewardSum,
+            decimal rewardSum,
             bool isApproved)
         {
             this.LostDate = LostDate;
@@ -52,7 +52,7 @@
 
         public string ImagesLinksPost { get; private set; }
 
-        public double? RewardSum { get; private set; }
+        public decimal? RewardSum { get; private set; }
 
         public Pet Pet { get; private set; }
 
@@ -60,20 +60,12 @@
 
         public bool IsApproved { get; private set; }
 
-        public Report UpdateManufacturer(string manufacturer)
+        public Report UpdateStatus(PetStatusType status)
         {
-            if (this.Manufacturer.Name != manufacturer)
+            if (this.Status != status)
             {
-                this.Manufacturer = new Manufacturer(manufacturer);
+                this.Status = status;
             }
-
-            return this;
-        }
-
-        public Report UpdateModel(string model)
-        {
-            this.ValidateModel(model);
-            this.Model = model;
 
             return this;
         }
@@ -86,20 +78,32 @@
             return this;
         }
 
-        public Report UpdatePricePerDay(decimal pricePerDay)
+        public Report UpdateRewardSum(decimal rewardSum)
         {
-            this.ValidatePricePerDay(pricePerDay);
-            this.PricePerDay = pricePerDay;
+            this.ValidateRewardSum(rewardSum);
+            this.RewardSum = rewardSum;
 
             return this;
         }
 
-        public Report UpdateOptions(
-            bool hasClimateControl,
-            int numberOfSeats,
-            TransmissionType transmissionType)
+        public Report UpdatePet(
+            PetType petType,
+            string name,
+            int age,
+            string rfid,
+            string petDescription)
         {
-            this.Options = new Options(hasClimateControl, numberOfSeats, transmissionType);
+            this.Pet = new Pet(petType, name, age, rfid, petDescription);
+
+            return this;
+        }
+
+        public Report UpdateLocation(
+            string address,
+            double latitude,
+            double longitude)
+        {
+            this.Location = new Location(address, latitude, longitude);
 
             return this;
         }
@@ -111,30 +115,22 @@
             return this;
         }
 
-        private void Validate()
+        private void Validate(string imgsLinksPosts, decimal rewardSum)
         {
-            this.ValidateModel(model);
-            this.ValidateImageUrl(imageUrl);
-            this.ValidatePricePerDay(pricePerDay);
+            this.ValidateImageUrl(imgsLinksPosts);
+            this.ValidateRewardSum(rewardSum);
         }
-
-        private void ValidateModel(string model)
-            => Guard.ForStringLength<InvalidReportException>(
-                model,
-                MinModelLength,
-                MaxModelLength,
-                nameof(this.Model));
 
         private void ValidateImageUrl(string imageUrl)
             => Guard.ForValidUrl<InvalidReportException>(
                 imageUrl,
                 nameof(this.ImagesLinksPost));
 
-        private void ValidatePricePerDay(decimal pricePerDay)
+        private void ValidateRewardSum(decimal rewardSum)
             => Guard.AgainstOutOfRange<InvalidReportException>(
-                pricePerDay,
+                rewardSum,
                 Zero,
                 decimal.MaxValue,
-                nameof(this.PricePerDay));
+                nameof(this.RewardSum));
     }
 }
