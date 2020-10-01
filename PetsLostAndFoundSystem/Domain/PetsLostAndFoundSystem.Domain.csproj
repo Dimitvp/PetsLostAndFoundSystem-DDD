@@ -26,9 +26,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Reporting\Specifications\" />
-    <Folder Include="Reporting\Repositories\" />
-  </ItemGroup>
-
 </Project>
