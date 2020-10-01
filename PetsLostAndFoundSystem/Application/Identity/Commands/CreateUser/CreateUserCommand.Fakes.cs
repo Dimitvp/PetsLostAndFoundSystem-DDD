@@ -1,6 +1,6 @@
 ﻿namespace PetsLostAndFoundSystem.Application.Identity.Commands.CreateUser
 {
-   using Bogus;
+    using Bogus;
 
     public class CreateUserCommandFakes
     {

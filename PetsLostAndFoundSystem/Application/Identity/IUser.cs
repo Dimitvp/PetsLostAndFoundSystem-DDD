@@ -1,9 +1,9 @@
 ﻿namespace PetsLostAndFoundSystem.Application.Identity
 {
-    using Domain.Dealerships.Models.Dealers;
+    using Domain.Reporting.Models.Reporters;
 
     public interface IUser
     {
-        void BecomeDealer(Dealer dealer);
+        void BecomeReporter(Reporter reporter);
     }
 }

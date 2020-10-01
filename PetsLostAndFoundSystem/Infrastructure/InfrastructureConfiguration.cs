@@ -46,7 +46,7 @@
                 .Scan(scan => scan
                     .FromCallingAssembly()
                     .AddClasses(classes => classes
-                        .AssignableTo(typeof(IRepository<>)))
+                        .AssignableTo(typeof(IQueryRepository<>)))
                     .AsMatchingInterface()
                     .WithTransientLifetime());
 

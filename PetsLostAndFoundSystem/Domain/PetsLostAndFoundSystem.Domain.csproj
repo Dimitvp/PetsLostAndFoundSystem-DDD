@@ -27,7 +27,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Reporting\Factories\" />
     <Folder Include="Reporting\Specifications\" />
     <Folder Include="Reporting\Repositories\" />
   </ItemGroup>

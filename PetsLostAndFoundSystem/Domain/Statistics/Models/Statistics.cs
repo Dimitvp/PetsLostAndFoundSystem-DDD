@@ -6,24 +6,24 @@
 
     public class Statistics : IAggregateRoot
     {
-        private readonly HashSet<CarAdView> carAdViews;
+        private readonly HashSet<ReportView> reportViews;
 
         internal Statistics()
         {
-            this.TotalCarAds = 0;
+            this.TotalReports = 0;
 
-            this.carAdViews = new HashSet<CarAdView>();
+            this.reportViews = new HashSet<ReportView>();
         }
 
-        public int TotalCarAds { get; private set; }
+        public int TotalReports { get; private set; }
 
-        public IReadOnlyCollection<CarAdView> CarAdViews
-            => this.carAdViews.ToList().AsReadOnly();
+        public IReadOnlyCollection<ReportView> ReportViews
+            => this.reportViews.ToList().AsReadOnly();
 
-        public void AddCarAd()
-            => this.TotalCarAds++;
+        public void AddReport()
+            => this.TotalReports++;
 
-        public void AddCarAdView(int carAdId, string? userId)
-            => this.carAdViews.Add(new CarAdView(carAdId, userId));
+        public void AddReportView(int reportId, string? userId)
+            => this.reportViews.Add(new ReportView(reportId, userId));
     }
 }

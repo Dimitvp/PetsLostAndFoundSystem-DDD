@@ -4,9 +4,9 @@
     using System.Threading.Tasks;
     using Domain.Common;
 
-    public interface IRepository<in TEntity>
+    public interface IQueryRepository<in TEntity>
         where TEntity : IAggregateRoot
     {
-        Task Save(TEntity entity, CancellationToken cancellationToken = default);
+        //Task Save(TEntity entity, CancellationToken cancellationToken = default);
     }
 }

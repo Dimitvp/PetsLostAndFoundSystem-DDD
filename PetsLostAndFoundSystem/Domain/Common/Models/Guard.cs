@@ -1,7 +1,7 @@
 ﻿namespace PetsLostAndFoundSystem.Domain.Common.Models
 {
     using System;
-    using Dealerships.Models;
+    using Reporting.Models;
 
     public static class Guard
     {

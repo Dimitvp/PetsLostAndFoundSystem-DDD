@@ -1,8 +1,8 @@
 ﻿namespace PetsLostAndFoundSystem.Application.Identity.Commands.CreateUser
 {
     using FluentValidation;
-    using static Domain.Dealerships.Models.ModelConstants.Common;
-    using static Domain.Dealerships.Models.ModelConstants.PhoneNumber;
+    using static Domain.Reporting.Models.ModelConstants.Common;
+    using static Domain.Reporting.Models.ModelConstants.PhoneNumber;
 
     public class CreateUserCommandValidator : AbstractValidator<CreateUserCommand>
     {

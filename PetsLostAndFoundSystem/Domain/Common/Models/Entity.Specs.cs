@@ -1,6 +1,6 @@
 ﻿namespace PetsLostAndFoundSystem.Domain.Common.Models
 {
-    using Dealerships.Models.CarAds;
+    using Reporting.Models.Reports;
     using FluentAssertions;
     using Xunit;
 
@@ -10,8 +10,8 @@
         public void EntitiesWithEqualIdsShouldBeEqual()
         {
             // Arrange
-            var first = new Manufacturer("First").SetId(1);
-            var second = new Manufacturer("Second").SetId(1);
+            var first = new Pet(PetType.Dog, "SomeName", 1, "someRFID", "Description").SetId(1);
+            var second = new Pet(PetType.Cat, "SomeName", 1, "someRFID", "Description").SetId(1);
 
             // Act
             var result = first == second;
@@ -24,8 +24,8 @@
         public void EntitiesWithDifferentIdsShouldNotBeEqual()
         {
             // Arrange
-            var first = new Manufacturer("First").SetId(1);
-            var second = new Manufacturer("Second").SetId(2);
+            var first = new Pet(PetType.Dog, "SomeName", 1, "someRFID", "Description").SetId(1);
+            var second = new Pet(PetType.Cat, "SomeName", 1, "someRFID", "Description").SetId(2);
 
             // Act
             var result = first == second;

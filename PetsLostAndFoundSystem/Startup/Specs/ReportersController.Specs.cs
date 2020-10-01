@@ -11,7 +11,7 @@
         [Fact]
         public void DetailsShouldHaveCorrectAttributes()
             => MyController<ReportersController>
-                .Calling(c => c.Details(With.Default<ReportersDetailsQuery>()))
+                .Calling(c => c.Details(With.Default<ReporterDetailsQuery>()))
 
                 .ShouldHave()
                 .ActionAttributes(attr => attr

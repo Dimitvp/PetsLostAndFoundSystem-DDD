@@ -1,7 +1,7 @@
 ﻿namespace PetsLostAndFoundSystem.Domain
 {
-    using Dealerships.Factories.CarAds;
-    using Dealerships.Factories.Dealers;
+    using Reporting.Factories.Reports;
+    using Reporting.Factories.Reporters;
     using FluentAssertions;
     using Microsoft.Extensions.DependencyInjection;
     using Xunit;
@@ -21,12 +21,12 @@
 
             // Assert
             services
-                .GetService<IDealerFactory>()
+                .GetService<IReporterFactory>()
                 .Should()
                 .NotBeNull();
 
             services
-                .GetService<ICarAdFactory>()
+                .GetService<IReportFactory>()
                 .Should()
                 .NotBeNull();
         }

@@ -1,6 +1,6 @@
 ﻿namespace PetsLostAndFoundSystem.Domain.Common.Models
 {
-    using Dealerships.Models.CarAds;
+    using Reporting.Models.Reports;
     using FluentAssertions;
     using Xunit;
 
@@ -10,8 +10,8 @@
         public void ValueObjectsWithEqualPropertiesShouldBeEqual()
         {
             // Arrange
-            var first = new Options(true, 2, TransmissionType.Automatic);
-            var second = new Options(true, 2, TransmissionType.Automatic);
+            var first = new Location("Adress", 46.66, 47.77);
+            var second = new Location("Adress", 46.66, 47.77);
 
             // Act
             var result = first == second;
@@ -24,8 +24,8 @@
         public void ValueObjectsWithDifferentPropertiesShouldNotBeEqual()
         {
             // Arrange
-            var first = new Options(true, 2, TransmissionType.Automatic);
-            var second = new Options(true, 2, TransmissionType.Manual);
+            var first = new Location("Adress", 46.66, 47.77);
+            var second = new Location("Adress", 46.66, 46.66);
 
             // Act
             var result = first == second;

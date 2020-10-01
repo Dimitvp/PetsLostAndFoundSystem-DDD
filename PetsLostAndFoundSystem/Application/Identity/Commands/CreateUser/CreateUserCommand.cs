@@ -3,7 +3,7 @@
     using System.Threading;
     using System.Threading.Tasks;
     using Common;
-    using Reporting.Dealers;
+    using Reporting.Reporters;
     using Domain.Reporting.Factories.Reporters;
     using MediatR;
 
@@ -17,12 +17,12 @@
         {
             private readonly IIdentity identity;
             private readonly IReporterFactory reporterFactory;
-            private readonly IReporterRepository reporterRepository;
+            private readonly IReporterQueryRepository reporterRepository;
 
             public CreateUserCommandHandler(
                 IIdentity identity,
                 IReporterFactory reporterFactory,
-                IReporterRepository reporterRepository)
+                IReporterQueryRepository reporterRepository)
             {
                 this.identity = identity;
                 this.reporterFactory = reporterFactory;
@@ -47,7 +47,7 @@
                     .WithPhoneNumber(request.PhoneNumber)
                     .Build();
 
-                user.BecomeDealer(reporter);
+                user.BecomeReporter(reporter);
 
                 await this.reporterRepository.Save(reporter, cancellationToken);
 
