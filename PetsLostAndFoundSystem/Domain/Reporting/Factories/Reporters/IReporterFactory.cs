@@ -8,5 +8,7 @@
         IReporterFactory WithName(string name);
 
         IReporterFactory WithPhoneNumber(string phoneNumber);
+
+        IReporterFactory WithPhoneNumber(string phoneNumber);
     }
 }

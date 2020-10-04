@@ -6,8 +6,6 @@
 
     public interface IReportFactory : IFactory<Report>
     {
-        
-
         IReportFactory WithStatus(PetStatusType status);
 
         IReportFactory WithLostDate(DateTime lostDate);
@@ -17,8 +15,6 @@
         IReportFactory WithRewardSum(decimal rewardSum);
 
         IReportFactory WithPet(Pet pet);
-
-        IReportFactory WithPet(int petId);
 
         IReportFactory WithPet(PetType petType,
                     string name,

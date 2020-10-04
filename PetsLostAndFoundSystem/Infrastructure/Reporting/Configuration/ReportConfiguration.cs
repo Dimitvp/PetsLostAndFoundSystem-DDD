@@ -12,6 +12,34 @@
         {
             builder
                 .HasKey(c => c.Id);
+
+            builder
+                .HasOne(r => r.Pet)
+                .WithOne()
+                .HasForeignKey("PatId")
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder
+                .Property(r => r.RewardSum)
+                .IsRequired()
+                .HasColumnType("decimal(18,2)");
+
+            builder
+                .Property(r => r.ImagesLinksPost)
+                .IsRequired()
+                .HasMaxLength(MaxUrlLength);
+
+            builder
+                .Property(r => r.IsApproved)
+                .IsRequired();
+
+            builder
+                .Property(r => r.Status)
+                .IsRequired();
+
+            builder
+                .Property(r => r.Location)
+                .IsRequired();
         }
     }
 }

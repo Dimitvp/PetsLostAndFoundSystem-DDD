@@ -14,7 +14,15 @@
 
         public decimal RewardSum { get; set; }
 
-        public int PetId { get; set; }
+        public int PetType { get; set; }
+
+        public string Name { get; set; } = default!;
+
+        public int Age { get; set; }
+
+        public string Rfid { get; set; } = default!;
+
+        public string PetDescription { get; set; } = default!;
 
         public string LocationAddress { get; set; } = default!;
 

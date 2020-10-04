@@ -43,7 +43,12 @@
                 var pet = await this.reportRepository.GetPet(request.Id, cancellationToken);
 
                 var factory = pet == null
-                    ? this.reportFactory.WithPet(request.PetId)
+                    ? this.reportFactory.WithPet(
+                        Enumeration.FromValue<PetType>(request.PetType),
+                        request.Name,
+                        request.Age,
+                        request.Rfid,
+                        request.Name)
                     : this.reportFactory.WithPet(pet);
 
                 var report = factory
