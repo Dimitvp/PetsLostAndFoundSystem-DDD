@@ -46,12 +46,15 @@
                 var report = await this.reportRepository
                     .Find(request.Id, cancellationToken);
 
+                var pet = await this.reportRepository
+                    .GetPet(request.PetId, cancellationToken);
+
                 report
-                    .UpdateStatus()
-                    .UpdateRewardSum()
-                    .UpdateLocation()
-                    .UpdatePet()
-                    .UpdateImageUrl();
+                    .UpdateStatus(Enumeration.FromValue<PetStatusType>(request.Status))
+                    .UpdateRewardSum(request.RewardSum)
+                    .UpdateLocation(request.LocationAddress, request.Latitude, request.Longitude)
+                    .UpdatePet(pet)
+                    .UpdateImageUrl(request.ImgsLinksPosts);
 
                 await this.reportRepository.Save(report, cancellationToken);
 

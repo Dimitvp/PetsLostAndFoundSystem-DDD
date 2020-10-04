@@ -86,15 +86,10 @@
             return this;
         }
 
-        public Report UpdatePet(
-            PetType petType,
-            string name,
-            int age,
-            string rfid,
-            string petDescription)
+        public Report UpdatePet(Pet pet)
         {
-            this.Pet = new Pet(petType, name, age, rfid, petDescription);
-
+            ValidatePet(pet);
+            this.Pet = pet;
             return this;
         }
 
@@ -132,5 +127,13 @@
                 Zero,
                 decimal.MaxValue,
                 nameof(this.RewardSum));
+
+        private void ValidatePet(Pet pet)
+        {
+            //TO DO - More validations needs to be added
+            var petName = pet?.Name;
+
+            throw new InvalidReportException($"'{petName}' is not a valid pet.");
+        }
     }
 }
