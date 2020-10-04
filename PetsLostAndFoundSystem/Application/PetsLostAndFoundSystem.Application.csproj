@@ -15,15 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Reporting\Reports\Commands\Create\" />
-    <Folder Include="Reporting\Reports\Commands\Delete\" />
-    <Folder Include="Reporting\Reports\Queries\Common\" />
-    <Folder Include="Reporting\Reports\Queries\Details\" />
-    <Folder Include="Reporting\Reports\Queries\Mine\" />
-    <Folder Include="Reporting\Reports\Queries\Search\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Domain\PetsLostAndFoundSystem.Domain.csproj" />
   </ItemGroup>
 

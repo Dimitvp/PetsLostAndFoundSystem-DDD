@@ -1,11 +1,14 @@
 ﻿namespace PetsLostAndFoundSystem.Application.Reporting.Reports.Commands.Common
 {
     using Application.Common;
+    using System;
 
     public class ReportCommand<TCommand> : EntityCommand<int>
         where TCommand : EntityCommand<int>
     {
         public int Status { get; set; }
+
+        public DateTime LostDate { get; set; }
 
         public string ImgsLinksPosts { get; set; } = default!;
 

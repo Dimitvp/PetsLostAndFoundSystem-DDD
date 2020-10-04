@@ -18,6 +18,8 @@
 
         IReportFactory WithPet(Pet pet);
 
+        IReportFactory WithPet(int petId);
+
         IReportFactory WithPet(PetType petType,
                     string name,
                     int age,
