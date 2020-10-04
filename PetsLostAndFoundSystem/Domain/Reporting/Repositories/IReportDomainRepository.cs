@@ -13,5 +13,7 @@
         Task<Pet> GetPet(
             int petId,
             CancellationToken cancellationToken = default);
+
+        Task Save(Report report, CancellationToken cancellationToken = default);
     }
 }

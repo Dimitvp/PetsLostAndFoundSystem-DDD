@@ -4,13 +4,13 @@
     using System.Threading.Tasks;
     using Application.Common;
     using Application.Common.Contracts;
-    using Reporters;
+    using Domain.Reporting.Repositories;
 
     public static class ChangeReportCommandExtensions
     {
         public static async Task<Result> ReporterHasReport(
             this ICurrentUser currentUser,
-            IReporterQueryRepository reporterRepository,
+            IReporterDomainRepository reporterRepository,
             int reportId,
             CancellationToken cancellationToken)
         {

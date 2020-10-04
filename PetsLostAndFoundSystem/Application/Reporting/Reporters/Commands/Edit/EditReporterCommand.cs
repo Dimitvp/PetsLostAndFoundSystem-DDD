@@ -5,6 +5,7 @@
     using Common;
     using Common.Contracts;
     using MediatR;
+    using Domain.Reporting.Repositories;
 
     public class EditReporterCommand : EntityCommand<int>, IRequest<Result>
     {
@@ -15,11 +16,11 @@
         public class EditReporterCommandHandler : IRequestHandler<EditReporterCommand, Result>
         {
             private readonly ICurrentUser currentUser;
-            private readonly IReporterQueryRepository reporterRepository;
+            private readonly IReporterDomainRepository reporterRepository;
 
             public EditReporterCommandHandler(
                 ICurrentUser currentUser,
-                IReporterQueryRepository reporterRepository)
+                IReporterDomainRepository reporterRepository)
             {
                 this.currentUser = currentUser;
                 this.reporterRepository = reporterRepository;

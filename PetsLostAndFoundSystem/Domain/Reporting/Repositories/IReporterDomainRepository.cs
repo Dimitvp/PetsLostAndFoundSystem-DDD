@@ -11,5 +11,7 @@
         Task<int> GetReporterId(string userId, CancellationToken cancellationToken = default);
 
         Task<bool> HasReport(int reporterId, int reportId, CancellationToken cancellationToken = default);
+
+        Task Save(Reporter report, CancellationToken cancellationToken = default);
     }
 }

@@ -33,11 +33,11 @@
 
             protected async Task<IEnumerable<TOutputModel>> GetReportListings<TOutputModel>(
                 ReportsQuery request,
-                bool onlyAvailable = true,
+                bool onlyApproved = true,
                 int? reporterId = default,
                 CancellationToken cancellationToken = default)
             {
-                var reportSpecification = this.GetReportSpecification(request, onlyAvailable);
+                var reportSpecification = this.GetReportSpecification(request, onlyApproved);
 
                 var reporterSpecification = this.GetReporterSpecification(request, reporterId);
 

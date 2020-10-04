@@ -5,7 +5,7 @@
     using Application.Common;
     using Application.Common.Contracts;
     using Common;
-    using Reporters;
+    using Domain.Reporting.Repositories;
     using MediatR;
 
 
@@ -15,12 +15,12 @@
         {
             private readonly ICurrentUser currentUser;
             private readonly IReportQueryRepository reportRepository;
-            private readonly IReporterQueryRepository reporterRepository;
+            private readonly IReporterDomainRepository reporterRepository;
 
             public DeleteReportCommandHandler(
                 ICurrentUser currentUser,
                 IReportQueryRepository reportRepository,
-                IReporterQueryRepository reporterRepository)
+                IReporterDomainRepository reporterRepository)
             {
                 this.currentUser = currentUser;
                 this.reportRepository = reportRepository;

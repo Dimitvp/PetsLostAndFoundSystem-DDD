@@ -17,11 +17,11 @@
                 .HasKey(id);
 
             builder
-                .HasMany(d => d.)
+                .HasMany(d => d.ReportViews)
                 .WithOne()
                 .Metadata
                 .PrincipalToDependent
-                .SetField();
+                .SetField("reportsViewa");
         }
     }
 }

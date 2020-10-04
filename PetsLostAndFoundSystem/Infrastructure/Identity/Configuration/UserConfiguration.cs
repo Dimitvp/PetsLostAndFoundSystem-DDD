@@ -9,7 +9,7 @@
         public void Configure(EntityTypeBuilder<User> builder)
         {
             builder
-                .HasOne(u => u.)
+                .HasOne(u => u.Reporter)
                 .WithOne()
                 .HasForeignKey<User>()
                 .OnDelete(DeleteBehavior.Restrict);

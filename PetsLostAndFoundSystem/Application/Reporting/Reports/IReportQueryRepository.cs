@@ -26,5 +26,11 @@
             Specification<Report> reportSpecification,
             Specification<Reporter> reporterSpecification,
             CancellationToken cancellationToken = default);
+
+        Task<Report> Find(int id, CancellationToken cancellationToken = default);
+
+        Task Save(Report report, CancellationToken cancellationToken = default);
+
+        Task<bool> Delete(int id, CancellationToken cancellationToken = default);
     }
 }

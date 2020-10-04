@@ -14,6 +14,8 @@
 
         public decimal RewardSum { get; set; }
 
+        public int PetId { get; set; }
+
         public int PetType { get; set; }
 
         public string Name { get; set; } = default!;

@@ -5,19 +5,19 @@
     using Application.Common;
     using Application.Common.Contracts;
     using Common;
-    using Reporters;
+    using Domain.Reporting.Repositories;
     using MediatR;
 
     public class ChangeAprovelCommand : EntityCommand<int>, IRequest<Result>
     {
         private readonly ICurrentUser currentUser;
         private readonly IReportQueryRepository reportRepository;
-        private readonly IReporterQueryRepository reporterRepository;
+        private readonly IReporterDomainRepository reporterRepository;
 
         public ChangeAprovelCommand(
             ICurrentUser currentUser,
             IReportQueryRepository reportRepository,
-            IReporterQueryRepository reporterRepository)
+            IReporterDomainRepository reporterRepository)
         {
             this.currentUser = currentUser;
             this.reportRepository = reportRepository;
@@ -41,7 +41,7 @@
             var report = await this.reportRepository
                 .Find(request.Id, cancellationToken);
 
-            report.ChangeAvailability();
+            report.ChangeAprovel();
 
             await this.reportRepository.Save(report, cancellationToken);
 

@@ -13,8 +13,12 @@
 
         Task<ReporterOutputModel> GetDetailsByReportId(int reportId, CancellationToken cancellationToken = default);
 
-        Task Save(ReporterOutputModel reporter,CancellationToken cancellationToken = default);
+        Task<Reporter> FindByUser(string userId, CancellationToken cancellationToken = default);
 
-        Task<ReporterOutputModel> FindByUser(string userId, CancellationToken cancellationToken = default);
+        Task<int> GetReporterId(string userId, CancellationToken cancellationToken = default);
+
+        Task<bool> HasReport(int reporterId, int reportId, CancellationToken cancellationToken = default);
+
+        Task Save(Reporter report, CancellationToken cancellationToken = default);
     }
 }
