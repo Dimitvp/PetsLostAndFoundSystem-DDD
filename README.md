@@ -1,3 +1,7 @@
+Update 04.10.2020:
+Need to create Migrations.
+Need to change the file structure according to the changes from the last lecture.
+
 # PetsLostAndFoundSystem-DDD
 Domain-Driven Design with ASP.NET Core Microservices - August 2020 
 
