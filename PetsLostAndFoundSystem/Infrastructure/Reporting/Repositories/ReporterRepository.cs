@@ -68,7 +68,7 @@
 
             if (reporterData == null)
             {
-                throw new InvalidReporterException("This user is not a dealer.");
+                throw new InvalidReporterException("This user is not a reporter.");
             }
 
             return reporterData;

@@ -38,12 +38,12 @@
                 return reporterHasReport;
             }
 
-            var carAd = await this.reportRepository
+            var report = await this.reportRepository
                 .Find(request.Id, cancellationToken);
 
-            carAd.ChangeAvailability();
+            report.ChangeAvailability();
 
-            await this.reportRepository.Save(carAd, cancellationToken);
+            await this.reportRepository.Save(report, cancellationToken);
 
             return Result.Success;
         }

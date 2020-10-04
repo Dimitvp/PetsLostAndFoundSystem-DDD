@@ -6,14 +6,14 @@
 
     public class GetCurrentStatisticsOutputModel : IMapFrom<Statistics>
     {
-        public int TotalCarAds { get; private set; }
+        public int TotalReports { get; private set; }
 
-        public int TotalCarAdViews { get; private set; }
+        public int TotalReportViews { get; private set; }
 
         public void Mapping(Profile mapper)
             => mapper
                 .CreateMap<Statistics, GetCurrentStatisticsOutputModel>()
-                .ForMember(cs => cs.TotalCarAds, cfg => cfg
-                    .MapFrom(s => s.CarAdViews.Count));
+                .ForMember(cs => cs.TotalReports, cfg => cfg
+                    .MapFrom(s => s.ReportViews.Count));
     }
 }

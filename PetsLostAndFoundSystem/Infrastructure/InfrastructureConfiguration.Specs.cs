@@ -2,15 +2,14 @@
 {
     using System;
     using System.Reflection;
-    using Application.Dealerships.CarAds;
+    using Application.Reporting.Reports;
     using AutoMapper;
     using Common.Persistence;
-    using Dealership;
+    using Reporting;
     using FakeItEasy;
     using FluentAssertions;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.DependencyInjection;
-    using Persistence;
     using Xunit;
 
     public class InfrastructureConfigurationSpecs
@@ -20,9 +19,9 @@
         {
             // Arrange
             var serviceCollection = new ServiceCollection()
-                .AddDbContext<CarRentalDbContext>(opts => opts
+                .AddDbContext<PetReportingDbContext>(opts => opts
                     .UseInMemoryDatabase(Guid.NewGuid().ToString()))
-                .AddTransient(_ => A.Fake<IDealershipDbContext>());
+                .AddTransient(_ => A.Fake<IReportingDbContext>());
 
             // Act
             var services = serviceCollection
@@ -32,7 +31,7 @@
 
             // Assert
             services
-                .GetService<ICarAdRepository>()
+                .GetService<IReportQueryRepository>()
                 .Should()
                 .NotBeNull();
         }

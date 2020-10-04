@@ -7,7 +7,7 @@
     using Common;
     using Common.Events;
     using Common.Persistence;
-    using Dealership;
+    using Reporting;
     using Identity;
     using Microsoft.AspNetCore.Authentication.JwtBearer;
     using Microsoft.AspNetCore.Identity;
@@ -32,13 +32,13 @@
             this IServiceCollection services,
             IConfiguration configuration)
             => services
-                .AddDbContext<CarRentalDbContext>(options => options
+                .AddDbContext<PetReportingDbContext>(options => options
                     .UseSqlServer(
                         configuration.GetConnectionString("DefaultConnection"),
                         sqlServer => sqlServer
-                            .MigrationsAssembly(typeof(CarRentalDbContext).Assembly.FullName)))
-                .AddScoped<IDealershipDbContext>(provider => provider.GetService<CarRentalDbContext>())
-                .AddScoped<IStatisticsDbContext>(provider => provider.GetService<CarRentalDbContext>())
+                            .MigrationsAssembly(typeof(PetReportingDbContext).Assembly.FullName)))
+                .AddScoped<IReportingDbContext>(provider => provider.GetService<PetReportingDbContext>())
+                .AddScoped<IStatisticsDbContext>(provider => provider.GetService<PetReportingDbContext>())
                 .AddTransient<IInitializer, DatabaseInitializer>();
 
         internal static IServiceCollection AddRepositories(this IServiceCollection services)
@@ -63,7 +63,7 @@
                     options.Password.RequireNonAlphanumeric = false;
                     options.Password.RequireUppercase = false;
                 })
-                .AddEntityFrameworkStores<CarRentalDbContext>();
+                .AddEntityFrameworkStores<PetReportingDbContext>();
 
             var secret = configuration
                 .GetSection(nameof(ApplicationSettings))

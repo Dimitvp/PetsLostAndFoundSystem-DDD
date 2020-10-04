@@ -12,6 +12,6 @@
             => this.statistics = statistics;
 
         public Task Handle(ReportAddedEvent domainEvent)
-            => this.statistics.IncrementCarAds();
+            => this.statistics.IncrementReports();
     }
 }

@@ -8,7 +8,7 @@
     {
         Task<Reporter> FindByUser(string userId, CancellationToken cancellationToken = default);
 
-        Task<int> GetDealerId(string userId, CancellationToken cancellationToken = default);
+        Task<int> GetReporterId(string userId, CancellationToken cancellationToken = default);
 
         Task<bool> HasReport(int reporterId, int reportId, CancellationToken cancellationToken = default);
     }

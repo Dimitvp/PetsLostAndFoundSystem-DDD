@@ -21,7 +21,7 @@
             {
                 var reporter = new Faker<Reporter>()
                     .CustomInstantiator(f => new Reporter(
-                        $"Dealer{id}",
+                        $"Reporter{id}",
                         f.Phone.PhoneNumber("+########")))
                     .Generate()
                     .SetId(id);

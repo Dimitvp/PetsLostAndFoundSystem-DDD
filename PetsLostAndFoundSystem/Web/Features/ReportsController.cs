@@ -7,7 +7,6 @@
     using Application.Reporting.Reports.Commands.Create;
     using Application.Reporting.Reports.Commands.Delete;
     using Application.Reporting.Reports.Commands.Edit;
-    using Application.Reporting.Reports.Queries.Categories;
     using Application.Reporting.Reports.Queries.Details;
     using Application.Reporting.Reports.Queries.Mine;
     using Application.Reporting.Reports.Queries.Search;

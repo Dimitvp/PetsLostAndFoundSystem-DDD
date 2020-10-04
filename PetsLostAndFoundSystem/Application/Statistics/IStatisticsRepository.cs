@@ -10,8 +10,8 @@
     {
         Task<GetCurrentStatisticsOutputModel> GetCurrent(CancellationToken cancellationToken = default);
 
-        Task<int> GetCarAdViews(int carAdId, CancellationToken cancellationToken = default);
+        Task<int> GetReportViews(int repoortId, CancellationToken cancellationToken = default);
 
-        Task IncrementCarAds(CancellationToken cancellationToken = default);
+        Task IncrementReports(CancellationToken cancellationToken = default);
     }
 }

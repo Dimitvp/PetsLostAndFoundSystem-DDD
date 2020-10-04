@@ -37,17 +37,17 @@
                 int? reporterId = default,
                 CancellationToken cancellationToken = default)
             {
-                var carAdSpecification = this.GetReportSpecification(request, onlyAvailable);
+                var reportSpecification = this.GetReportSpecification(request, onlyAvailable);
 
-                var dealerSpecification = this.GetReporterSpecification(request, reporterId);
+                var reporterSpecification = this.GetReporterSpecification(request, reporterId);
 
                 var searchOrder = new ReportsSortOrder(request.SortBy, request.Order);
 
                 var skip = (request.Page - 1) * ReportsPerPage;
 
                 return await this.reportRepository.GetReportListings<TOutputModel>(
-                    carAdSpecification,
-                    dealerSpecification,
+                    reportSpecification,
+                    reporterSpecification,
                     searchOrder,
                     skip,
                     take: ReportsPerPage,

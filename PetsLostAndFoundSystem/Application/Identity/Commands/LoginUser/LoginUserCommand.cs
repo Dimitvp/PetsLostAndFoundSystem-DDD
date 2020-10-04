@@ -3,7 +3,7 @@
     using System.Threading;
     using System.Threading.Tasks;
     using Common;
-    using Dealerships.Dealers;
+    using Reporting.Reporters;
     using MediatR;
 
     public class LoginUserCommand : UserInputModel, IRequest<Result<LoginOutputModel>>
@@ -11,14 +11,14 @@
         public class LoginUserCommandHandler : IRequestHandler<LoginUserCommand, Result<LoginOutputModel>>
         {
             private readonly IIdentity identity;
-            private readonly IDealerRepository dealerRepository;
+            private readonly IReporterQueryRepository reporterRepository;
 
             public LoginUserCommandHandler(
                 IIdentity identity,
-                IDealerRepository dealerRepository)
+                IReporterQueryRepository reporterRepository)
             {
                 this.identity = identity;
-                this.dealerRepository = dealerRepository;
+                this.reporterRepository = reporterRepository;
             }
 
             public async Task<Result<LoginOutputModel>> Handle(
@@ -34,9 +34,9 @@
 
                 var user = result.Data;
 
-                var dealerId = await this.dealerRepository.GetDealerId(user.UserId, cancellationToken);
+                var reporterId = await this.reporterRepository.GetReporterId(user.UserId, cancellationToken);
 
-                return new LoginOutputModel(user.Token, dealerId);
+                return new LoginOutputModel(user.Token, reporterId);
             }
         }
     }

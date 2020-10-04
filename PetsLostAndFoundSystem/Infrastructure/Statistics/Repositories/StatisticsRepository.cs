@@ -22,18 +22,18 @@
                 .ProjectTo<GetCurrentStatisticsOutputModel>(this.All())
                 .SingleOrDefaultAsync(cancellationToken);
 
-        public async Task<int> GetCarAdViews(int carAdId, CancellationToken cancellationToken = default)
+        public async Task<int> GetReportViews(int reportId, CancellationToken cancellationToken = default)
             => await this.Data
-                .CarAdViews
-                .CountAsync(cav => cav.CarAdId == carAdId, cancellationToken);
+                .ReportViews
+                .CountAsync(cav => cav.ReportId == reportId, cancellationToken);
 
-        public async Task IncrementCarAds(CancellationToken cancellationToken = default)
+        public async Task IncrementReports(CancellationToken cancellationToken = default)
         {
             var statistics = await this.Data
                 .Statistics
                 .SingleOrDefaultAsync(cancellationToken);
 
-            statistics.AddCarAd();
+            statistics.AddReport();
 
             await this.Save(statistics, cancellationToken);
         }

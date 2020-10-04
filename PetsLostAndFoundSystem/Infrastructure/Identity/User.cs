@@ -13,7 +13,7 @@
 
         public Reporter? Reporter { get; private set; }
 
-        public void BecomeReporter(Reporter dealer)
+        public void BecomeReporter(Reporter reporter)
         {
             if (this.Reporter != null)
             {
