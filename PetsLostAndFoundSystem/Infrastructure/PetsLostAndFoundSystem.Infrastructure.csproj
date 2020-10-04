@@ -28,8 +28,4 @@
     <ProjectReference Include="..\Application\PetsLostAndFoundSystem.Application.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Reporting\" />
-  </ItemGroup>
-
 </Project>
