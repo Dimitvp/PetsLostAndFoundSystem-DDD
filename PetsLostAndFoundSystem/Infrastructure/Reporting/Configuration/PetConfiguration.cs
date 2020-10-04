@@ -3,12 +3,10 @@
     using Domain.Reporting.Models.Reports;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
-    using static Domain.Reporting.Models.ModelConstants.Common;
-    using static Domain.Reporting.Models.ModelConstants.Report;
 
-    internal class ReportConfiguration : IEntityTypeConfiguration<Report>
+    public class PetConfiguration : IEntityTypeConfiguration<Pet>
     {
-        public void Configure(EntityTypeBuilder<Report> builder)
+        public void Configure(EntityTypeBuilder<Pet> builder)
         {
             builder
                 .HasKey(c => c.Id);

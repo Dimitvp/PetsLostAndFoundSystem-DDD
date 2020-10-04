@@ -21,7 +21,6 @@
     <Folder Include="Reporting\Reports\Queries\Details\" />
     <Folder Include="Reporting\Reports\Queries\Mine\" />
     <Folder Include="Reporting\Reports\Queries\Search\" />
-    <Folder Include="Statistics\Handlers\" />
   </ItemGroup>
 
   <ItemGroup>

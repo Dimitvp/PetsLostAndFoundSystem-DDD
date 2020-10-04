@@ -1,8 +1,8 @@
 ﻿namespace PetsLostAndFoundSystem.Infrastructure.Identity
 {
     using Application.Identity;
-    using Domain.Dealerships.Exceptions;
-    using Domain.Dealerships.Models.Dealers;
+    using Domain.Reporting.Exceptions;
+    using Domain.Reporting.Models.Reporters;
     using Microsoft.AspNetCore.Identity;
 
     public class User : IdentityUser, IUser
@@ -11,16 +11,16 @@
             : base(email)
             => this.Email = email;
 
-        public Dealer? Dealer { get; private set; }
+        public Reporter? Reporter { get; private set; }
 
-        public void BecomeDealer(Dealer dealer)
+        public void BecomeReporter(Reporter dealer)
         {
-            if (this.Dealer != null)
+            if (this.Reporter != null)
             {
-                throw new InvalidDealerException($"User '{this.UserName}' is already a dealer.");
+                throw new InvalidReporterException($"User '{this.UserName}' is already a reporter.");
             }
 
-            this.Dealer = dealer;
+            this.Reporter = reporter;
         }
     }
 }

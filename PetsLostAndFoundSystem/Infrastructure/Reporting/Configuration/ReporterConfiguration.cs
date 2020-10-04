@@ -8,8 +8,31 @@
     public class ReporterConfiguration : IEntityTypeConfiguration<Reporter>
     {
         public void Configure(EntityTypeBuilder<Reporter> builder)
-        { 
-        
+        {
+            builder
+                .HasKey(r => r.Id);
+
+            builder
+               .Property(r => r.Name)
+               .IsRequired()
+               .HasMaxLength(MaxNameLength);
+
+            builder
+                .OwnsOne(
+                    r => r.PhoneNumber,
+                    p =>
+                    {
+                        p.WithOwner();
+
+                        p.Property(pn => pn.Number);
+                    });
+
+            builder
+                .HasMany(r => r.Reports)
+                .WithOne()
+                .Metadata
+                .PrincipalToDependent
+                .SetField("reports");
         }
     }
 }

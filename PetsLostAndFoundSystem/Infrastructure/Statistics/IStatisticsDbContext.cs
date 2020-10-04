@@ -8,6 +8,6 @@
     {
         DbSet<Statistics> Statistics { get; }
 
-        DbSet<> CarAdViews { get; }
+        DbSet<ReportView> ReportViews { get; }
     }
 }
