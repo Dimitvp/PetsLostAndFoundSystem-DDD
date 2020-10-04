@@ -15,6 +15,8 @@
         public virtual void Mapping(Profile mapper)
             => mapper
                 .CreateMap<Reporter, ReporterOutputModel>()
+                .ForMember(d => d.Name, cfg => cfg
+                    .MapFrom(d => d.Name))
                 .ForMember(d => d.PhoneNumber, cfg => cfg
                     .MapFrom(d => d.PhoneNumber.Number));
     }

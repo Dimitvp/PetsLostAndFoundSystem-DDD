@@ -12,5 +12,9 @@
         Task<ReporterDetailsOutputModel> GetDetails(int id, CancellationToken cancellationToken = default);
 
         Task<ReporterOutputModel> GetDetailsByReportId(int reportId, CancellationToken cancellationToken = default);
+
+        Task Save(ReporterOutputModel reporter,CancellationToken cancellationToken = default);
+
+        Task<ReporterOutputModel> FindByUser(string userId, CancellationToken cancellationToken = default);
     }
 }
